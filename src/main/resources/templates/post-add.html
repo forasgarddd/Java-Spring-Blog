@@ -10,10 +10,11 @@
 
 <div class="container mt-5 mb-5">
     <h1>Add post</h1>
-    <form action="/blog/add" method="post">
+    <form action="/blog/add" method="post" enctype="multipart/form-data">
         <input type="text" name="title" placeholder="Enter post title:" class="form-control"><br>
         <input type="text" name="announcement" placeholder="Enter post announcement:" class="form-control"><br>
         <textarea name="fullText" placeholder="Enter post text:" class="form-control"></textarea><br>
+        <input type="file" name="file">
         <button type="submit" class="btn-success">Add post</button>
     </form>
 </div>

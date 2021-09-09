@@ -9,13 +9,14 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 <h1 sec:authorize="isAuthenticated()">
-    Hello, <span sec:authentication="name"></span></h1>
+    Hello, <span sec:authentication="name" class="fw-bold"></span></h1>
 
 <div class="container mt-5">
     <h1>Site blog</h1>
     <div th:each="element : ${posts}" class="alert alert-info mt-2">
         <h3 th:text="${element.title}"></h3>
         <p th:text="${element.announcement}"></p>
+        <p th:text="${element.getAuthorName()}" class="fw-bold">by </p>
         <a th:href="'/blog/' + ${element.id}" class="btn btn-warning">View full</a>
     </div>
 

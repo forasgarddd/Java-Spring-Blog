@@ -1,9 +1,6 @@
 package com.springapp.springapp.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Post {
@@ -16,13 +13,24 @@ public class Post {
     private String fullText;
     private int views;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
+
+    private String fileName;
+
     public Post() {
     }
 
-    public Post(String title, String announcement, String fullText) {
+    public Post(String title, String announcement, String fullText, User author) {
         this.title = title;
         this.announcement = announcement;
         this.fullText = fullText;
+        this.author = author;
+    }
+
+    public String getAuthorName() {
+        return author != null ? author.getUsername() : "<none>";
     }
 
     public void setId(Long id) {
@@ -63,6 +71,22 @@ public class Post {
 
     public void setViews(int views) {
         this.views = views;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFilename(String fileName) {
+        this.fileName = fileName;
     }
 
 }
