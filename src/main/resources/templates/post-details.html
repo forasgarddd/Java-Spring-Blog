@@ -1,6 +1,10 @@
 <!DOCTYPE HTML>
+<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+=======
+<html xmlns:th="http://www.thymeleaf.org">
+>>>>>>> origin/master
 <head>
     <title>Site blog</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,6 +19,7 @@
         <h3 th:text="${element.title}"></h3>
         <p th:text="${element.fullText}"></p>
         <p th:text="'Views: ' + ${element.views}"></p>
+<<<<<<< HEAD
         <div th:if="${element.fileName != null}">
             <img th:src="@{${'/img/' + element.fileName}}" class="img-fluid">
         </div><br>
@@ -26,6 +31,13 @@
             </form>
         </div>
 
+=======
+        <a th:href="'/blog/' + ${element.id} + '/edit'" class="btn btn-warning">Edit</a>
+        <br><br>
+        <form th:action="'/blog/' + ${element.id} + '/remove'" method="post">
+            <button th:href="'/blog/' + ${element.id} + '/remove'" type="submit" class="btn btn-warning">Delete</button>
+        </form>
+>>>>>>> origin/master
     </div>
 
 </div>
