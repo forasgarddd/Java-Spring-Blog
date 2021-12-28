@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="script" href="lab.js">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" th:src="@{/js/lab.js}"></script>
+    <script type="text/javascript" th:src="@{/js/imagesloaded.js}"></script>
+    <script type="text/javascript" th:src="@{/js/masonry.js}"></script>
+    <title>Название страницы</title>
+    <style>
+        body {
+
+            font-family: "Lucida Console", monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <header class="h1" style=""><h1 class="he1" style="" th:text="'Hello'"></h1>
+        <h4 onclick="imageForm()" class="w1" id="w1" style="">
+            task5</h4></header>
+    <header class="h4" style=""><p class="p1" id="p1" style="">lolo qeop eqjfjn qeoeqi fakd<br>
+        <h1>Masonry - imagesLoaded callback, vanilla JS</h1>
+
+        <div class="grid">
+            <div class="grid-sizer"></div>
+
+            <div class="grid-item" th:each="element : ${masonries}">
+                <div th:if="${element.getFileName() != null}">
+
+                    <form th:action="'/weblab/' + ${element.getId()} + '/remove'" method="post" style="position: relative;">
+                        <img th:src="@{${'/img/' + element.getFileName()}}">
+                        <div style="position: absolute; left: 100px; top: 40px;">
+                            <button th:href="'/weblab/' + ${element.getId()} + '/remove'" type="submit" class="btn btn-warning">Delete</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <input type="radio" name="r1" id="r1" value="5">change<br>
+        <input type="radio" name="r2" id="r2" value="13">get back<br>
+        <div id="list">
+        </div>
+    </header>
+    <header id="h3" class="h3" style=""><p class="p2" style="">Elle FanningElle FanningElle FanningElle FanningElle
+        Fanning</p></header>
+    <header id="h6" class="h6" style=""><p class="p3" style="">Thanks for visiting</p></header>
+    <nav class="h2" style=""><p style="position:relative;">Menu
+        <ul class="menu" style="">
+            <li><a href="weblab1.html">Biography</a></li>
+            <li><a href="index2.html">Lifestyle</a></li>
+            <li><a href="index3.html">News</a></li>
+            <li><a href="index4.html">Articles</a></li>
+            <li><a href="index5.html">About</a></li>
+        </ul>
+    </nav>
+    <article class="h5" id="h5" style=""><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices
+        tincidunt
+        velit eu porta. LorLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices tincidunt velit eu
+        porta. LorLorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <form class="t5" id="t5"><p>Select images, they will be stored in your browser</p>
+            <input type="file" id="files">
+
+            <p id="state">No images stored in your browser.</p>
+
+
+            <a href="#" id="deleteImgs">Delete Images</a><br></form>
+        <br><br>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/weblab/add">Add masonry image</a>
+    </article>
+    <footer class="h7" style="">
+        <footer class="foot" style="">Some copyrights &copy</footer>
+        <h10 class="w2" id="w2" style="">LOL</h10>
+    </footer>
+</div>
+
+<script th:src="@{/js/lab.js}"></script>
+
+
+</body>
+</html>
